@@ -87,10 +87,8 @@
     color: var(--route-gold);
   }
   .btn.gold:hover { background: var(--route-gold); color: var(--club-blue); }
-  .hero .btn + .btn { margin-left: 0.75rem; }
-  @media (max-width: 480px) {
-    .hero .btn { display: block; margin: 0 auto 0.75rem; max-width: 260px; }
-    .hero .btn + .btn { margin-left: auto; }
+  .hero-cta {
+    display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
   }
 
   /* ---------- Sections ---------- */
@@ -123,19 +121,10 @@
     display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: center;
   }
   @media (max-width: 700px) { .club-grid { grid-template-columns: 1fr; text-align: center; } .club-shield { margin: 0 auto; } }
-  /* CSS rendition of the 5-11 Club shield (sub-brand mark) */
+  /* 5-11 Club shield (exact brand artwork geometry) */
   .club-shield {
-    width: 170px; height: 190px;
-    background: var(--club-blue);
-    border: 4px solid var(--route-gold);
-    border-radius: 22px 22px 48% 48%;
-    box-shadow: 0 0 0 6px var(--club-blue), 0 0 0 8px var(--route-gold);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    font-family: 'Oswald', sans-serif; color: var(--route-gold);
-    flex-shrink: 0;
+    width: 190px; height: auto; flex-shrink: 0; display: block;
   }
-  .club-shield .small { font-weight: 500; font-size: 1rem; letter-spacing: 0.25em; }
-  .club-shield .big { font-weight: 700; font-size: 3.4rem; line-height: 1; letter-spacing: 0.04em; }
   .club ul {
     list-style: none; margin: 1.25rem 0 2rem;
   }
@@ -158,11 +147,11 @@
   .visit .eyebrow { color: var(--kraft); }
   .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   @media (max-width: 700px) { .visit-grid { grid-template-columns: 1fr; } }
-  .hours-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+  .hours-table { width: 100%; max-width: 360px; border-collapse: collapse; margin-top: 0.5rem; }
   .hours-table td { padding: 0.5rem 0; border-bottom: 1px solid rgba(241, 231, 210, 0.2); font-size: 1.05rem; }
   .hours-table td:last-child { text-align: right; }
-  .visit iframe { width: 100%; height: 280px; border: 0; filter: grayscale(0.2); }
-  .visit address { font-style: normal; margin-top: 1rem; font-size: 1.05rem; }
+  .visit iframe { width: 100%; height: 280px; border: 0; border-radius: 10px; filter: grayscale(0.2); }
+  .visit address { font-style: normal; margin-top: 1.25rem; font-size: 1.05rem; line-height: 1.7; }
   .visit a { color: var(--kraft); }
 
   /* ---------- Footer ---------- */
@@ -201,8 +190,10 @@
     <img class="seal" src="RAR-Seal-cream-on-espresso.png" alt="Ringwood Ave Roasters — Haskell, NJ — Est. 2026">
     <h1>Locally Roasted. Neighbor Owned.</h1>
     <p class="tag">Small-batch coffee roasted on-site at 1089 Ringwood Ave in Haskell, NJ. However you morning, we're your new stop on 511.</p>
-    <a class="btn" href="#visit">Find Us</a>
-    <a class="btn gold" href="#club">Join the 5–11 Club</a>
+    <div class="hero-cta">
+      <a class="btn" href="#visit">Find Us</a>
+      <a class="btn gold" href="#club">Join the 5–11 Club</a>
+    </div>
   </div>
 
   <section class="story" id="story">
@@ -218,11 +209,15 @@
   <section class="club" id="club">
     <div class="inner">
       <div class="club-grid">
-        <div class="club-shield" role="img" aria-label="5-11 Coffee Club shield">
-          <span class="small">Coffee</span>
-          <span class="big">511</span>
-          <span class="small">Club</span>
-        </div>
+        <svg class="club-shield" viewBox="0 14 220 226" role="img" aria-label="5-11 Coffee Club shield">
+          <path d="M 119.5,21.3 L 187.4,74.2 Q 200,84 200,100 L 200,220 Q 200,236 184,236 L 36,236 Q 20,236 20,220 L 20,100 Q 20,84 32.6,74.2 L 100.5,21.3 Q 110,14 119.5,21.3 Z" fill="#1A3A82"/>
+          <g transform="translate(110,128) scale(0.9) translate(-110,-128)">
+            <path d="M 119.5,21.3 L 187.4,74.2 Q 200,84 200,100 L 200,220 Q 200,236 184,236 L 36,236 Q 20,236 20,220 L 20,100 Q 20,84 32.6,74.2 L 100.5,21.3 Q 110,14 119.5,21.3 Z" fill="none" stroke="#F5C518" stroke-width="3"/>
+          </g>
+          <text x="110" y="97" text-anchor="middle" fill="#F5C518" font-family="Oswald, sans-serif" font-weight="500" font-size="22" letter-spacing="5">COFFEE</text>
+          <text x="110" y="181" text-anchor="middle" fill="#F5C518" font-family="Oswald, sans-serif" font-weight="700" font-size="74">511</text>
+          <text x="110" y="217" text-anchor="middle" fill="#F5C518" font-family="Oswald, sans-serif" font-weight="500" font-size="22" letter-spacing="7">CLUB</text>
+        </svg>
         <div>
           <div class="eyebrow">Named for Route 511 — The Road We're On</div>
           <h2>The 5–11 Club</h2>
@@ -279,8 +274,7 @@
 <footer>
   <img src="RAR-Seal-cream-on-espresso.png" alt="">
   <div class="tagline">However you morning, we're your new stop on 511.</div>
-  <!-- TODO: replace # with your real Instagram URL when the handle is live -->
-  <div><a href="#" aria-disabled="true">Instagram — coming soon</a></div>
+  <div><a href="https://www.instagram.com/ringwoodaveroasters" target="_blank" rel="noopener">Instagram — @ringwoodaveroasters</a></div>
   <div class="fine">&copy; 2026 Ringwood Ave Roasters · 1089 Ringwood Ave, Haskell, NJ · Est. 2026</div>
 </footer>
 
