@@ -133,6 +133,7 @@
   .club li {
     padding-left: 1.4rem; position: relative; margin-bottom: 0.5rem; font-size: 1.05rem;
   }
+  .nowrap { white-space: nowrap; }
   .club li::before {
     content: ""; position: absolute; left: 0; top: 0.55em;
     width: 8px; height: 8px; background: var(--route-gold); border-radius: 50%;
@@ -224,7 +225,7 @@
           <div class="eyebrow">Named for Route 511 — The Road We're On</div>
           <h2>The 5–11 Club</h2>
           <ul>
-            <li>Unlimited drip coffee, every morning, 5am–11am</li>
+            <li>Unlimited drip coffee, every morning, <span class="nowrap">5am–11am</span></li>
             <li>A member cup that's yours to keep</li>
             <li>Limited availability — first come, first served</li>
           </ul>
